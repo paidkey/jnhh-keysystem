@@ -1,0 +1,72 @@
+@import "tailwindcss";
+
+@theme {
+  --color-gaming-black: #0a0a0a;
+  --color-gaming-dark: #111111;
+  --color-gaming-card: #1a1a1a;
+  --color-gaming-border: #2a2a2a;
+  --color-gaming-red: #dc2626;
+  --color-gaming-red-light: #ef4444;
+  --color-gaming-red-dark: #991b1b;
+  --color-gaming-red-glow: rgba(220, 38, 38, 0.4);
+  --font-gaming: "Segoe UI", system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-gaming-black);
+  color: #f5f5f5;
+  font-family: var(--font-gaming);
+  min-height: 100vh;
+}
+
+.glow-red {
+  box-shadow: 0 0 20px var(--color-gaming-red-glow), 0 0 40px rgba(220, 38, 38, 0.15);
+}
+
+.text-glow-red {
+  text-shadow: 0 0 10px var(--color-gaming-red-glow), 0 0 20px rgba(220, 38, 38, 0.3);
+}
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(220, 38, 38, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(220, 38, 38, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 0 15px var(--color-gaming-red-glow);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(220, 38, 38, 0.6);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
