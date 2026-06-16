@@ -3,12 +3,12 @@ const TELEGRAM_URL = "https://t.me/jnhhgaming";
 
 const plans = [
   {
-    name: "Free Version",
-    prices: [{ label: "Free", highlight: true }],
+    name: "Keyless Basic Version",
+    prices: [{ label: "0$", highlight: true }],
     features: [
       "No Key",
       "Good Anti-Cheat Bypass (NO BAN)",
-      "Limited Features",
+      "Limited Features⚠️",
     ],
     cta: "Get Free Version",
     highlighted: false,
