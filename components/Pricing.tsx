@@ -1,5 +1,7 @@
 const INSTAGRAM_URL = "https://www.instagram.com/jn_hh_gaming";
 const TELEGRAM_URL = "https://t.me/jnhhgaming";
+const YOUTUBE_URL = "https://www.youtube.com/@jnhhgaming";
+const KEY_URL = "https://YOUR_KEY_SYSTEM_LINK_HERE";
 
 const plans = [
   {
