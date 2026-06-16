@@ -19,25 +19,25 @@ const plans = [
     prices: [{ label: "0$", highlight: true }],
     features: [
       "Better Anti-Cheat Bypass (NO BAN)",
-      "Daily Key System for 24 hours key",
+      "Daily Key System for 24 hours key 🔑",
       "All Features✅",
     ],
     cta: "Click on Generate Key",
     highlighted: true,
-    badge: null,
+    badge: "Most Popular",
   },
   {
-    name: "Paid Version — 1 Year",
+    name: "Paid Version",
     prices: [
-      { label: "70 USD", highlight: true },
+      { label: "7$ or 70$", highlight: true },
       { label: "OR", highlight: false },
-      { label: "30000 Robux", highlight: true },
+      { label: " 3000 Robux or 30000 Robux", highlight: true },
     ],
     features: [
       "Best Anti-Cheat Bypass (NO BAN)",
-      "2 Months Bonus",
-      "All Features",
-      "Best Value",
+      "No Key🔑",
+      "All Features✅️",
+      "Best Value⭐",
     ],
     cta: "Purchase 1 Year",
     highlighted: false,
@@ -45,7 +45,7 @@ const plans = [
   },
 ];
 
-const paymentMethods = ["Paypal", "Crypto", "UPI", "Robux"];
+const paymentMethods = ["Paypal", "Crypto"," Credit Card", "Debit Card", "UPI", "Robux"];
 
 const purchaseChannels = [
   {
