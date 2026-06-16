@@ -22,7 +22,7 @@ const plans = [
       "Daily Key System for 24 hours key",
       "All Features✅",
     ],
-    cta: "Get Free Version",
+    cta: "Click on Generate key",
     highlighted: true,
     badge: null,
   },
