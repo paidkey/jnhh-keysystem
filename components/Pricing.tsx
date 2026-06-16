@@ -15,20 +15,16 @@ const plans = [
     badge: null,
   },
   {
-    name: "Paid Version — 1 Month",
-    prices: [
-      { label: "7 USD", highlight: true },
-      { label: "OR", highlight: false },
-      { label: "3000 Robux", highlight: true },
-    ],
+    name: "Key System — Daily",
+    prices: [{ label: "0$", highlight: true }],
     features: [
-      "Best Anti-Cheat Bypass (NO BAN)",
-      "Bonus Days 1 to 10",
-      "All Features",
+      "Better Anti-Cheat Bypass (NO BAN)",
+      "Daily Key System for 24 hours key",
+      "All Features✅",
     ],
-    cta: "Purchase 1 Month",
+    cta: "Get Free Version",
     highlighted: true,
-    badge: "Most Popular",
+    badge: null,
   },
   {
     name: "Paid Version — 1 Year",
