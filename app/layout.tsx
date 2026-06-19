@@ -35,6 +35,12 @@ export default function RootLayout({
             __html: `(function(){var s=document.createElement('script');s.src='https://pl29789393.effectivecpmnetwork.com/15/54/41/15544153cc26112901e0c788b03fd6a3.js';s.async=true;document.head.appendChild(s);})();`,
           }}
         />
+        {/* Anti-Adblock */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var s=document.createElement('script');s.src='https://everybodycollecteagle.com/1d/e3/20/1de32055ff0b495e2d3d9cb6b1a911d3.js';s.async=true;document.head.appendChild(s);})();`,
+          }}
+        />
       </head>
       <body className="antialiased">
         <div className="grid-bg min-h-screen flex flex-col">
