@@ -23,6 +23,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Ad Maven Site Verification */}
+        <meta name='admaven-placement' content='BrHsFqjn5' />
+
         {/* Adsterra Popunder */}
         <script
           dangerouslySetInnerHTML={{
@@ -45,7 +48,6 @@ export default function RootLayout({
       <body className="antialiased">
         <div className="grid-bg min-h-screen flex flex-col">
           <Header />
-
           {/* Adsterra Banner 728x90 - Top */}
           <div className="flex justify-center py-2 bg-gaming-dark/50">
             <div>
@@ -68,9 +70,7 @@ export default function RootLayout({
               />
             </div>
           </div>
-
           <main className="flex-1">{children}</main>
-
           {/* Adsterra Native Banner - Above Footer */}
           <div className="flex justify-center py-4">
             <script
@@ -80,7 +80,6 @@ export default function RootLayout({
             />
             <div id="container-49be1ff3bbc1337ca058f14a12497da7"></div>
           </div>
-
           {/* Adsterra Banner 728x90 - Bottom */}
           <div className="flex justify-center py-2 bg-gaming-dark/50">
             <div>
@@ -103,7 +102,6 @@ export default function RootLayout({
               />
             </div>
           </div>
-
           <Footer />
         </div>
       </body>
