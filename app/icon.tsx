@@ -6,13 +6,23 @@ export const contentType = "image/png";
 export default function Icon() {
   return new ImageResponse(
     (
-      <img
-        src="https://i.ibb.co/qYpk6r9c/channels4-profile.jpg"
-        width="32"
-        height="32"
-        alt="JN HH Gaming"
-      />
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "#dc2626",
+          borderRadius: 6,
+          color: "white",
+          fontSize: 14,
+          fontWeight: 700,
+        }}
+      >
+        JH
+      </div>
     ),
     { ...size }
   );
-}
+} 
