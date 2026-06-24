@@ -11,7 +11,8 @@ type GeneratedKeyResponse = {
   expiry_hours: number;
 };
 
-const SMARTLINK_URL = "https://www.effectivecpmnetwork.com/zasxq9zf9a?key=d0c05691ee5effbcdbcbef1ac1723f6d";
+// Ad Maven Smartlink
+const SMARTLINK_URL = "https://ustashewasputtin.com?Ojp9P=1374715";
 const ADS_REQUIRED = 5;
 
 export default function KeyGenerator() {
@@ -23,7 +24,6 @@ export default function KeyGenerator() {
   const [showAdPrompt, setShowAdPrompt] = useState(false);
 
   const handleGenerate = useCallback(async () => {
-    // If not enough ad clicks, show ad prompt
     if (adClicks < ADS_REQUIRED) {
       setShowAdPrompt(true);
       return;
@@ -47,7 +47,7 @@ export default function KeyGenerator() {
       }
 
       setResult(data as GeneratedKeyResponse);
-      setAdClicks(0); // reset after successful generation
+      setAdClicks(0);
       setShowAdPrompt(false);
     } catch {
       setError("Network error. Please check your connection and try again.");
@@ -80,29 +80,6 @@ export default function KeyGenerator() {
 
   return (
     <div className="rounded-2xl border border-gaming-border bg-gaming-card p-6 sm:p-8">
-
-      {/* Banner Ad 300x250 */}
-      <div className="flex justify-center mb-6">
-        <div>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                atOptions = {
-                  'key' : 'b92159cedbeff4a38f54728ef63b39b9',
-                  'format' : 'iframe',
-                  'height' : 250,
-                  'width' : 300,
-                  'params' : {}
-                };
-              `,
-            }}
-          />
-          <script
-            src="https://www.highperformanceformat.com/b92159cedbeff4a38f54728ef63b39b9/invoke.js"
-            async
-          />
-        </div>
-      </div>
 
       {/* Ad Click Progress */}
       {showAdPrompt && (
@@ -184,54 +161,8 @@ export default function KeyGenerator() {
           <p className="mt-6 text-sm font-medium text-gray-400">
             Expiry: {result.expiry_hours ?? KEY_EXPIRY_HOURS} Hours
           </p>
-
-          {/* Banner Ad 300x250 after key generation */}
-          <div className="mt-6 flex justify-center">
-            <div>
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: `
-                    atOptions = {
-                      'key' : 'b92159cedbeff4a38f54728ef63b39b9',
-                      'format' : 'iframe',
-                      'height' : 250,
-                      'width' : 300,
-                      'params' : {}
-                    };
-                  `,
-                }}
-              />
-              <script
-                src="https://www.highperformanceformat.com/b92159cedbeff4a38f54728ef63b39b9/invoke.js"
-                async
-              />
-            </div>
-          </div>
         </div>
       )}
-
-      {/* Banner Ad 160x600 sidebar-style */}
-      <div className="mt-6 flex justify-center">
-        <div>
-          <script
-            dangerouslySetInnerHTML={{
-              __html: `
-                atOptions = {
-                  'key' : '48cbdd63e77ac540499adc96fa7fad31',
-                  'format' : 'iframe',
-                  'height' : 600,
-                  'width' : 160,
-                  'params' : {}
-                };
-              `,
-            }}
-          />
-          <script
-            src="https://www.highperformanceformat.com/48cbdd63e77ac540499adc96fa7fad31/invoke.js"
-            async
-          />
-        </div>
-      </div>
 
       <div className="mt-10 rounded-xl border border-gaming-border/50 bg-gaming-dark/50 p-4">
         <h3 className="mb-2 text-sm font-semibold text-gray-300">How it works</h3>
