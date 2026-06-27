@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: "JN HH Gaming Rivals Key System",
@@ -25,21 +26,18 @@ export default function RootLayout({
       <head>
         {/* Ad Maven Site Verification */}
         <meta name='admaven-placement' content='BrHsFqjn5' />
-
         {/* Ad Maven Pop */}
         <script
           data-cfasync="false"
           src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1374651"
           async
         />
-
         {/* Ad Maven Interstitial */}
         <script
           data-cfasync="false"
           src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1374679"
           async
         />
-
         {/* Ad Maven In Page Push */}
         <script
           data-cfasync="false"
@@ -48,6 +46,13 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        {/* Google AdSense */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1630801160378163"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
         <div className="grid-bg min-h-screen flex flex-col">
           <Header />
           <main className="flex-1">{children}</main>
