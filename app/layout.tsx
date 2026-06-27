@@ -3,6 +3,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Script from "next/script";
+import AdBlockDetector from "@/components/AdBlockDetector";
 
 export const metadata: Metadata = {
   title: "JN HH Gaming Rivals Key System",
@@ -36,6 +37,8 @@ export default function RootLayout({
         />
       </head>
       <body className="antialiased">
+        {/* Ad Block Detector */}
+        <AdBlockDetector />
         {/* Adsterra Native Banner */}
         <Script
           async
