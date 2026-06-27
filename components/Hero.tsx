@@ -50,7 +50,7 @@ export default function Hero() {
           style={{ animationDelay: "0.3s" }}
         >
           {[
-            { value: "10K+", label: "Keys Generated" },
+            { value: "100K+", label: "Keys Generated" },
             { value: "99.9%", label: "Uptime" },
             { value: "<1s", label: "Generation Time" },
           ].map((stat) => (
