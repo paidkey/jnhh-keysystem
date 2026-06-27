@@ -9,7 +9,6 @@ export default function AdBlockDetector() {
     let score = 0;
     const checks: Promise<void>[] = [];
 
-    // Check 1 — fake ad element (catches Adblock Plus, basic blockers)
     const p1 = new Promise<void>((resolve) => {
       const test = document.createElement("div");
       test.className = "adsbygoogle adsbox ad-placement";
@@ -24,16 +23,14 @@ export default function AdBlockDetector() {
     });
     checks.push(p1);
 
-    // Check 2 — fetch known ad URL (catches uBlock Origin)
     const p2 = fetch(
       "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js",
       { method: "HEAD", mode: "no-cors" }
     )
-      .then(() => {}) 
+      .then(() => {})
       .catch(() => { score++; });
     checks.push(p2);
 
-    // Check 3 — fake ad iframe (catches Brave Shields)
     const p3 = new Promise<void>((resolve) => {
       const iframe = document.createElement("iframe");
       iframe.src =
@@ -55,7 +52,6 @@ export default function AdBlockDetector() {
     });
     checks.push(p3);
 
-    // Check 4 — window.adsbygoogle undefined (catches Brave + uBlock hard mode)
     const p4 = new Promise<void>((resolve) => {
       setTimeout(() => {
         if (typeof (window as Window & { adsbygoogle?: unknown }).adsbygoogle === "undefined") {
@@ -66,7 +62,6 @@ export default function AdBlockDetector() {
     });
     checks.push(p4);
 
-    // Only block if score >= 3 (ignores light/Chrome built-in blockers)
     Promise.all(checks).then(() => {
       setTimeout(() => {
         if (score >= 3) setAdBlockDetected(true);
@@ -79,29 +74,25 @@ export default function AdBlockDetector() {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/90 backdrop-blur-sm">
       <div className="mx-4 max-w-md rounded-2xl border border-gaming-red/40 bg-gaming-card p-8 text-center shadow-[0_0_40px_rgba(220,38,38,0.2)]">
-        {/* Icon */}
         <div className="mb-6 flex justify-center">
           <div className="flex h-20 w-20 items-center justify-center rounded-full border border-gaming-red/30 bg-gaming-red/10">
             <span className="text-4xl">🚫</span>
           </div>
         </div>
 
-        {/* Title */}
         <h2 className="mb-3 text-2xl font-bold text-white">
           Ad Blocker Detected
         </h2>
 
-        {/* Description */}
         <p className="mb-2 text-sm text-gray-400">
           This site is{" "}
-          <span className="font-semibold text-white">100% free</span> — ads are
+          <span className="font-semibold text-white">100% free</span> &mdash; ads are
           the only way we keep it running.
         </p>
         <p className="mb-6 text-sm text-gray-500">
           Please disable your ad blocker and refresh the page to continue.
         </p>
 
-        {/* Steps */}
         <div className="mb-6 rounded-xl border border-gaming-border/50 bg-gaming-dark/50 p-4 text-left">
           <p className="mb-3 text-xs font-semibold text-gray-300">
             How to disable:
@@ -113,7 +104,7 @@ export default function AdBlockDetector() {
             </li>
             <li className="flex gap-2">
               <span className="font-bold text-gaming-red-light">2.</span>
-              Select "Disable for this site" or "Pause on this site"
+              Select &quot;Disable for this site&quot; or &quot;Pause on this site&quot;
             </li>
             <li className="flex gap-2">
               <span className="font-bold text-gaming-red-light">3.</span>
@@ -121,7 +112,6 @@ export default function AdBlockDetector() {
             </li>
           </ol>
 
-          {/* Brave specific */}
           <div className="mt-4 border-t border-gaming-border/30 pt-4">
             <p className="mb-2 text-xs font-semibold text-gray-300">
               🦁 Using Brave Browser?
@@ -133,7 +123,7 @@ export default function AdBlockDetector() {
               </li>
               <li className="flex gap-2">
                 <span className="font-bold text-gaming-red-light">2.</span>
-                Toggle "Shields" to OFF for this site
+                Toggle &quot;Shields&quot; to OFF for this site
               </li>
               <li className="flex gap-2">
                 <span className="font-bold text-gaming-red-light">3.</span>
@@ -143,17 +133,16 @@ export default function AdBlockDetector() {
           </div>
         </div>
 
-        {/* Refresh button */}
         <button
           type="button"
           onClick={() => window.location.reload()}
           className="glow-red w-full rounded-xl bg-gaming-red px-8 py-3 text-sm font-bold text-white transition-all hover:bg-gaming-red-light hover:shadow-[0_0_25px_rgba(220,38,38,0.5)]"
         >
-          🔄 I've Disabled It — Refresh
+          🔄 I&apos;ve Disabled It &mdash; Refresh
         </button>
 
         <p className="mt-4 text-xs text-gray-600">
-          We don't collect personal data. Ads keep key access free.
+          We don&apos;t collect personal data. Ads keep key access free.
         </p>
       </div>
     </div>
