@@ -24,37 +24,29 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Ad Maven Site Verification */}
-        <meta name='admaven-placement' content='BrHsFqjn5' />
-        {/* Ad Maven Pop */}
+        {/* Adsterra Popunder */}
         <script
-          data-cfasync="false"
-          src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1374651"
+          src="https://everybodycollecteagle.com/1d/e3/20/1de32055ff0b495e2d3d9cb6b1a911d3.js"
           async
         />
-        {/* Ad Maven Interstitial */}
+        {/* Adsterra Social Bar */}
         <script
-          data-cfasync="false"
-          src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1374679"
-          async
-        />
-        {/* Ad Maven In Page Push */}
-        <script
-          data-cfasync="false"
-          src="//dcbbwymp1bhlf.cloudfront.net/?wbbcd=1374694"
+          src="https://everybodycollecteagle.com/15/54/41/15544153cc26112901e0c788b03fd6a3.js"
           async
         />
       </head>
       <body className="antialiased">
-        {/* Google AdSense */}
+        {/* Adsterra Native Banner */}
         <Script
           async
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1630801160378163"
-          crossOrigin="anonymous"
+          data-cfasync="false"
+          src="https://everybodycollecteagle.com/49be1ff3bbc1337ca058f14a12497da7/invoke.js"
           strategy="afterInteractive"
         />
         <div className="grid-bg min-h-screen flex flex-col">
           <Header />
+          {/* Native Banner container */}
+          <div id="container-49be1ff3bbc1337ca058f14a12497da7" />
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
