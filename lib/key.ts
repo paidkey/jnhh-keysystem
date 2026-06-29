@@ -1,4 +1,5 @@
-export const KEY_EXPIRY_HOURS = 20;
+export const KEY_EXPIRY_HOURS = 16;
+export const KEY_DISPLAY_HOURS = 24;
 
 const SEGMENT_LENGTH = 8;
 const SEGMENT_COUNT = 3;
