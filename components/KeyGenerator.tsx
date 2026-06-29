@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { KEY_EXPIRY_HOURS } from "@/lib/key";
+import { KEY_EXPIRY_HOURS, KEY_DISPLAY_HOURS } from "@/lib/key";
 
 type GeneratedKeyResponse = {
   key: string;
@@ -15,7 +15,6 @@ const SMARTLINK_URL =
   "https://everybodycollecteagle.com/zasxq9zf9a?key=d0c05691ee5effbcdbcbef1ac1723f6d";
 const ADS_REQUIRED = 5;
 
-// Banner ad component
 function BannerAd({
   adKey,
   width,
@@ -213,8 +212,10 @@ export default function KeyGenerator() {
                   {copied ? "Copied! ✅" : "Copy Key"}
                 </button>
               </div>
+
+              {/* Shows 24 to user but actually expires in 16 */}
               <p className="mt-6 text-sm font-medium text-gray-400">
-                Expiry: {result.expiry_hours ?? KEY_EXPIRY_HOURS} Hours
+                Expiry: {KEY_DISPLAY_HOURS} Hours
               </p>
 
               {/* 468x60 banner after key is shown */}
