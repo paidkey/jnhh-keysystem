@@ -6,6 +6,7 @@ import { useState, useEffect, useRef } from "react";
 
 const navLinks = [
   { href: "/#features", label: "Features" },
+  { href: "/#pricing", label: "Pricing" },
   { href: "/#info", label: "Info" },
   { href: "/generate-key", label: "Generate Key" },
 ];
@@ -101,7 +102,7 @@ export default function Header() {
   const TOTAL_STEPS = 2;
 
   const handleNavClick = (e: React.MouseEvent, href: string) => {
-    if (href === "/#features" || href === "/#info") {
+    if (href === "/#features" || href === "/#info" || href === "/#pricing") {
       e.preventDefault();
       setPendingHref(href);
       setPopupStep(1);
