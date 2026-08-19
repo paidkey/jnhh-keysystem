@@ -32,9 +32,11 @@ const plans = [
   {
     name: "Paid Version",
     prices: [
-      { label: "7$ or 70$", highlight: true },
+      { label: "Price for 1 month is 7$", highlight: true },
       { label: "OR", highlight: false },
-      { label: " 3000 Robux or 30000 Robux", highlight: true },
+      { label: "Price for 1 Year is 50$", highlight: true },
+      { label: "OR", highlight: false },
+      { label: "Price for Life time is 100$", highlight: true },
     ],
     features: [
       "Best Anti-Cheat Bypass (NO BAN)",
