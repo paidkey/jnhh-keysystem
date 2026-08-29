@@ -158,9 +158,9 @@ export default function Header() {
             <Image
               src="/logo.png"
               alt="JN HH Gaming"
-              width={36}
-              height={36}
-              className="h-9 w-9 rounded-lg object-cover transition-transform group-hover:scale-105"
+              width={44}
+              height={44}
+              className="h-11 w-11 object-contain transition-transform group-hover:scale-105"
             />
             <div className="hidden sm:block">
               <span className="block text-sm font-bold leading-tight text-white">
