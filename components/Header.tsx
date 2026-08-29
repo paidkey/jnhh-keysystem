@@ -156,7 +156,7 @@ export default function Header() {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-4 sm:px-6">
           <Link href="/" className="group flex items-center gap-2">
             <Image
-              src="/logo.png"
+              src="/logo.jpg"
               alt="JN HH Gaming"
               width={44}
               height={44}
