@@ -21,6 +21,22 @@ export type KeyInsert = {
   banned?: boolean;
 };
 
+export type GenerateDailyKeyArgs = {
+  p_fingerprint: string;
+  p_key: string;
+  p_expires_at: string;
+  p_key_type?: string;
+};
+
+export type GenerateDailyKeyRow = {
+  key: string;
+  status: KeyStatus;
+  key_type: KeyType;
+  expires_at: string;
+  already_issued: boolean;
+  retry_after: string;
+};
+
 export type Database = {
   public: {
     Tables: {
@@ -32,7 +48,12 @@ export type Database = {
       };
     };
     Views: Record<string, never>;
-    Functions: Record<string, never>;
+    Functions: {
+      generate_daily_key: {
+        Args: GenerateDailyKeyArgs;
+        Returns: GenerateDailyKeyRow[];
+      };
+    };
     Enums: Record<string, never>;
     CompositeTypes: Record<string, never>;
   };
