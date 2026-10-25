@@ -24,32 +24,41 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
-        {/* Adsterra Popunder */}
-        <script
-          src="https://everybodycollecteagle.com/1d/e3/20/1de32055ff0b495e2d3d9cb6b1a911d3.js"
-          async
-        />
-        {/* Adsterra Social Bar */}
-        <script
-          src="https://everybodycollecteagle.com/15/54/41/15544153cc26112901e0c788b03fd6a3.js"
-          async
-        />
-      </head>
       <body className="antialiased">
         {/* Ad Block Detector */}
         <AdBlockDetector />
-        {/* Adsterra Native Banner */}
+
+        {/* Pop-ups: init config */}
+        <Script
+          id="aso-popup-init"
+          data-cfasync="false"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,a){w[a]=w[a]||{};w[a].queue=w[a].queue||[];w[a].queue.push(function(){_ASO.PuOptions={idzone:166522};_ASO.loadPuHelper();})})(window,"_aso");`,
+          }}
+        />
+        {/* Pop-ups: loader */}
         <Script
           async
           data-cfasync="false"
-          src="https://everybodycollecteagle.com/49be1ff3bbc1337ca058f14a12497da7/invoke.js"
+          src="https://media.zentrova.dev/js/code.min.js"
           strategy="afterInteractive"
         />
+
         <div className="grid-bg min-h-screen flex flex-col">
           <Header />
-          {/* Native Banner container */}
-          <div id="container-49be1ff3bbc1337ca058f14a12497da7" />
+
+          {/* Direct link (move this anywhere you like) */}
+          <div className="text-center py-2">
+            <a
+              href="https://track.zentrova.dev/link?z=166524"
+              target="_blank"
+              rel="noopener noreferrer sponsored"
+            >
+              Support us
+            </a>
+          </div>
+
           <main className="flex-1">{children}</main>
           <Footer />
         </div>
