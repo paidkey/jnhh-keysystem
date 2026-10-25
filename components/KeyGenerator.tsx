@@ -1,8 +1,7 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useState } from "react";
 import Script from "next/script";
-import FingerprintJS from "@fingerprintjs/fingerprintjs";
 import { KEY_EXPIRY_HOURS, KEY_DISPLAY_HOURS } from "@/lib/key";
 
 type GeneratedKeyResponse = {
@@ -11,8 +10,6 @@ type GeneratedKeyResponse = {
   key_type: string;
   expires_at: string;
   expiry_hours: number;
-  already_issued?: boolean;
-  retry_after?: string;
 };
 
 const AD_LINK = "https://track.zentrova.dev/link?z=166524";
@@ -49,18 +46,6 @@ export default function KeyGenerator() {
   const [error, setError] = useState("");
   const [adClicks, setAdClicks] = useState(0);
   const [showAdPrompt, setShowAdPrompt] = useState(false);
-  const fingerprintRef = useRef<string | null>(null);
-
-  useEffect(() => {
-    FingerprintJS.load()
-      .then((fp) => fp.get())
-      .then((res) => {
-        fingerprintRef.current = res.visitorId;
-      })
-      .catch(() => {
-        fingerprintRef.current = null;
-      });
-  }, []);
 
   const handleGenerate = useCallback(async () => {
     if (adClicks < ADS_REQUIRED) {
@@ -74,18 +59,10 @@ export default function KeyGenerator() {
     setResult(null);
 
     try {
-      let fingerprint = fingerprintRef.current;
-      if (!fingerprint) {
-        const fp = await FingerprintJS.load();
-        const res = await fp.get();
-        fingerprint = res.visitorId;
-        fingerprintRef.current = fingerprint;
-      }
-
       const response = await fetch("/api/keys/generate", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ fingerprint }),
+        body: JSON.stringify({}),
       });
       const data = await response.json();
 
@@ -126,7 +103,7 @@ export default function KeyGenerator() {
 
   return (
     <div className="space-y-6">
-      {/* Pop-ups: init config (same id as layout.tsx so it only loads once) */}
+      {/* Pop-ups: init config */}
       <Script
         id="aso-popup-init"
         data-cfasync="false"
@@ -144,11 +121,9 @@ export default function KeyGenerator() {
         strategy="afterInteractive"
       />
 
-      {/* Top sponsored link */}
       <SponsoredLink label="Visit our sponsor" />
 
       <div className="rounded-2xl border border-gaming-border bg-gaming-card p-6 sm:p-8">
-        {/* Ad Click Progress */}
         {showAdPrompt && (
           <div className="mb-6 rounded-xl border border-gaming-red/30 bg-gaming-dark p-4 text-center">
             <p className="mb-2 text-sm font-semibold text-white">
@@ -179,10 +154,8 @@ export default function KeyGenerator() {
           </div>
         )}
 
-        {/* Sponsored link above generate button */}
         <SponsoredLink label="Check out this offer" className="mb-6" />
 
-        {/* Generate Button */}
         <div className="flex justify-center">
           <button
             type="button"
@@ -214,15 +187,6 @@ export default function KeyGenerator() {
 
         {result && (
           <div className="animate-fade-in-up mt-10 text-center">
-            {result.already_issued && (
-              <p className="mb-3 text-sm font-medium text-yellow-400">
-                You already have an active key on this device.
-                {result.retry_after &&
-                  ` You can generate a new one after ${new Date(
-                    result.retry_after
-                  ).toLocaleTimeString()}.`}
-              </p>
-            )}
             <p className="mb-3 text-sm font-medium text-gray-300">Generated Key</p>
             <div className="mx-auto max-w-full rounded-xl border border-gaming-red/30 bg-gaming-dark px-4 py-4 font-mono text-sm tracking-wider text-gaming-red-light break-all sm:text-base">
               {result.key}
@@ -241,7 +205,6 @@ export default function KeyGenerator() {
               Expiry: {KEY_DISPLAY_HOURS} Hours
             </p>
 
-            {/* Sponsored link after key is shown */}
             <SponsoredLink label="Support us with one more visit" className="mt-6" />
           </div>
         )}
@@ -264,11 +227,9 @@ export default function KeyGenerator() {
           </ol>
         </div>
 
-        {/* Bottom sponsored link */}
         <SponsoredLink label="Visit our sponsor" className="mt-6" />
       </div>
 
-      {/* Page-bottom sponsored link */}
       <SponsoredLink label="Check out another offer" />
     </div>
   );
