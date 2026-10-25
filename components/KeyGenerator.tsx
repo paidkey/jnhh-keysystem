@@ -30,7 +30,7 @@ function SponsoredLink({
         rel="noopener noreferrer sponsored"
         className="w-full max-w-md rounded-xl border border-gaming-red/40 bg-gaming-dark px-6 py-4 text-center text-sm font-semibold text-gaming-red-light transition-all hover:bg-gaming-red/10 hover:shadow-[0_0_20px_rgba(220,38,38,0.3)]"
       >
-        🎁 {label}
+         {label}
         <span className="mt-1 block text-xs font-normal text-gray-500">
           Sponsored · Opens in a new tab
         </span>
@@ -121,7 +121,7 @@ export default function KeyGenerator() {
         strategy="afterInteractive"
       />
 
-      <SponsoredLink label="Visit our sponsor" />
+      <SponsoredLink label="Ad" />
 
       <div className="rounded-2xl border border-gaming-border bg-gaming-card p-6 sm:p-8">
         {showAdPrompt && (
