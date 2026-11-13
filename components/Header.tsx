@@ -4,8 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-
-const AD_LINK = "https://track.zentrova.dev/link?z=166524";
+import BannerAd from "@/components/BannerAd";
 
 const navLinks = [
   { href: "/#features", label: "Features" },
@@ -54,19 +53,13 @@ function AdPopup({
           Supporting this free project ❤️
         </p>
 
-        {/* Sponsored link */}
+        {/* Ad */}
         <div className="mb-5 flex justify-center">
-          <a
-            href={AD_LINK}
-            target="_blank"
-            rel="noopener noreferrer sponsored"
-            className="w-full rounded-xl border border-gaming-red/50 bg-gaming-black px-6 py-5 text-sm font-semibold text-gaming-red-light transition-all hover:bg-gaming-red/10 hover:shadow-[0_0_20px_rgba(220,38,38,0.3)]"
-          >
-            🎁 {step === 1 ? "Visit our sponsor" : "Check out another offer"}
-            <span className="mt-1 block text-xs font-normal text-gray-500">
-              Opens in a new tab
-            </span>
-          </a>
+          {step === 1 ? (
+            <BannerAd adKey="b92159cedbeff4a38f54728ef63b39b9" width={300} height={250} />
+          ) : (
+            <BannerAd adKey="f14881bec14040f7e7be580ba49e04b1" width={160} height={300} />
+          )}
         </div>
 
         <button
